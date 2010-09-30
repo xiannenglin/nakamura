@@ -9,7 +9,7 @@ import org.sakaiproject.nakamura.api.inform.InformConstants;
 public class CommandFactory {
 
   /**
-   * 
+   * only the "admin" can write(store, update, delete) inform
    * @param action
    * @return
    * @throws CommandException TODO

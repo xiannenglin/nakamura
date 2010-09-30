@@ -41,8 +41,6 @@ public class UpdateInform implements Command {
     } catch (InformNotFoundException e) {
       return InformJSONUtils.parseFalseJSONString();
     }
-    // notify the observers registered to the subject to update
-    inform.notifyObservers(session);
     try {
       return InformJSONUtils.parseJSONString(inform);
     } catch (JSONException e) {

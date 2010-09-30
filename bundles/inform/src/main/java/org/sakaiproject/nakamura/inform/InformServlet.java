@@ -42,7 +42,6 @@ public class InformServlet extends SlingAllMethodsServlet implements InformConst
       throws ServletException, IOException {
 
     String result = null;
-
     if (request.getRemoteUser().equals(UserConstants.ANON_USERID)) {
       response.sendError(HttpServletResponse.SC_UNAUTHORIZED,
           "Anonymous users can't get the inform.");
@@ -50,6 +49,7 @@ public class InformServlet extends SlingAllMethodsServlet implements InformConst
       return;
     } else {
       String action = request.getParameter(InformConstants.SAKAI_INFORM_PARAMETER_ACTION);
+      
       try {
         Command command = CommandFactory.createReadCommand(action);
         result = command.execute(informService, request);
@@ -105,5 +105,4 @@ public class InformServlet extends SlingAllMethodsServlet implements InformConst
     PrintWriter out = response.getWriter();
     out.print(result);
   }
-
 }

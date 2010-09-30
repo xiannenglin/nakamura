@@ -33,8 +33,6 @@ public class SaveInform implements Command {
 
     Inform inform = InformFactory.getInstanceToAdd(author, title, content, pictureURI);
     inform = InformService.store(inform, session);
-    // notify the observers registered to the subject to update
-    inform.notifyObservers(session);
     try {
       return InformJSONUtils.parseJSONString(inform);
     } catch (JSONException e) {
